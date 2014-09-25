@@ -1,0 +1,23 @@
+<div id="content-title" class="color-bg-4 color-1">
+    <img src="images/icon_matriz.png" class="pull-left" />
+    <label class="pull-left m-20">Avaliações Disponíveis</label>
+    <paper-shadow z="1"></paper-shadow>
+</div>
+<div id="content-box" ng-if="exams.length>0">
+    <div ng-repeat="exam in exams" class="color-bg-1 pointer box-50" ng-class-odd="'pull-left'" ng-class-even="'pull-right'" ng-click="loadExam(exam)"  layout vertical>
+        <div class="box-header color-1 color-bg-3 pull-left">
+            <core-item icon="drive-form" label="{{exam.assessment_name}}"></core-item>
+        </div>
+        <div class="box-middle color-bg-1 color-4 pull-left" >
+            <ul>
+                <li ng-repeat="(key,texts) in exam.exam_owner_texts">{{texts}}</li>
+            </ul>
+        </div>
+        <paper-shadow z="1"></paper-shadow>
+    </div>
+</div>
+<div id="content-box" ng-if="exams.length==0">
+    <div id="full-message">
+        Não existem avaliações disponiveis
+    </div>
+</div>

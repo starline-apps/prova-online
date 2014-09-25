@@ -1,0 +1,62 @@
+
+core-scaffold {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+core-toolbar{
+    padding-top:5px;
+    text-align: center;
+}
+core-animated-pages {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+}
+core-animated-pages section {
+    height: 100%;
+    width:100%;
+}
+core-pages-animated transitions {
+    width: 100%;
+    height: 100%;
+}
+paper-progress {
+    width: 80%;
+}
+paper-butaton{
+    width:100%;
+    height:100%;
+}
+paper-button {
+    margin: 1em;
+    width: 15em;
+    color: #78AE40;
+    fill: #78AE40;
+    font-size: large;
+    letter-spacing: 1.5px;
+}
+
+paper-button[raisedButton] {
+    background: #78AE40;
+    color: #fff;
+}
+
+paper-button[raisedButton] #ripple,
+paper-button[raisedButton]::shadow #ripple {
+    color: #2a56c6;
+}
+
+paper-button[raisedButton] #focusBg,
+paper-button[raisedButton]::shadow #focusBg {
+    background: #375B5F;
+}
+.core-overlay-backdrop{
+    z-index:999 !important;
+
+}

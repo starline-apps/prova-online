@@ -1,0 +1,69 @@
+<div ng-init="command()" class="row-fluid">
+	<div ng-bind-html="command.body"></div>
+	<div ng-if="command.textanswer_set.length > 0" class="padded input full-width" ng-repeat="answer in command.textanswer_set">
+		<input ng-model="currentAnswer.value" ng-if="!answer.size_is_lines" max-length="{{answer.size_limit}}" type="text" placeholder="Insira sua resposta"/>
+		<textarea ng-model="currentAnswer.value" ng-if="answer.size_is_lines" rows="{{answer.size_limit}}" placeholder="Insira sua resposta"></textarea>
+	</div>
+
+	<ul class="padded" ng-if="command.alternative_set.length > 0">	
+		<li ng-repeat="alternative in command.alternative_set">
+			<label class="radio">
+				<div class="radio pull-left">
+					<span ng-class="{'checked': currentAnswer.value == alternative.key}">
+					<input ng-model="currentAnswer.value" type="radio" ng-value="alternative.key" name="{{itemSet.item.key}}" style="opacity: 0;"/>
+					</span>
+				</div>
+				<span ng-bind-html="alternative.body"></span>
+			</label>
+		</li>
+	</ul>
+	<div class="">
+		<div class="pagination pagination-centered">
+			<ul class="">
+				<li ng-click="backCommand()" ng-class="{'disabled': command.commandIndex == 0}">
+					<a href="">
+					«
+					</a>
+				</li>
+				<li ng-class="{'active': command.commandIndex == cmd.commandIndex}" ng-repeat="cmd in examHeader.commands">
+					<a ui-sref="exam.session.item.command({command: cmd.command, session: cmd.session, item: cmd.item})">{{cmd.commandIndex + 1}}</a>
+				</li>
+				<li ng-click="nextCommand()" ng-class="{'disabled': command.commandIndex == examHeader.commands.length - 1}">
+					<a href="">
+					»
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+<!-- ng-click="checkQuestion(alternative, command.key, itemSet.item.key, session.key)" -->
+
+<!--Modal -->
+<div id="myModal" ng-if="terminationBySystem" class="modal fade in" style="display: block;" aria-hidden="false">
+	<div class="modal-header">
+		<h3>Aviso!</h3>
+	</div>
+	<div class="modal-body">
+		<p>A prova foi encerrada e enviada aos nossos servidores devido a uma saída do modo "tela cheia"</p>
+	</div>
+	<div data-dismiss="modal" class="modal-footer">
+		<a ui-sref="index" class="btn btn-green">Fechar</a>
+	</div>
+</div>
+<div ng-if="terminationBySystem" class="modal-backdrop fade in"></div>
+
+<!--Modal -->
+<div id="myModal" ng-if="terminationByUser" class="modal fade in" style="display: block;" aria-hidden="false">
+	<div class="modal-header">
+		<h3>Obrigado!</h3>
+	</div>
+	<div class="modal-body">
+		<p>Obrigado por entregar a prova {{examHeader.examtexts.field1_value}}</p>
+		<p>A prova foi enviada para nossos servidores e será entregue pelo professor conforme o combinado.</p>
+	</div>
+	<div data-dismiss="modal" class="modal-footer">
+		<a ng-click="clearExam()" class="btn btn-green">Fechar</a>
+	</div>
+</div>
+<div ng-if="terminationByUser" class="modal-backdrop fade in"></div>

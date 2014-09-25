@@ -1,0 +1,34 @@
+<div id="content-title" class="color-bg-4 color-1" ng-init="listResults()">
+    <img src="images/icon_matriz.png" class="pull-left" />
+    <label class="pull-left m-20">Resultados</label>
+    <paper-shadow z="1"></paper-shadow>
+</div>
+<div id="content-box"  ng-if="exams.length>0">
+    <div ng-repeat="exam in exams" class="color-bg-1 pointer box-50" ng-class-odd="'pull-left'" ng-class-even="'pull-right'" layout vertical>
+        <div class="box-header color-1 color-bg-3 pull-left">
+            <core-item icon="drive-form" label="{{exam.assessment_name}}"></core-item>
+        </div>
+        <div class="box-middle color-bg-1 color-4 pull-left" >
+            <p style="font-size:20px;text-align:center;margin-top:10%;">Valor obtido : <b>{{exam.result}}</b></p>
+        </div>
+        <paper-shadow z="1"></paper-shadow>
+    </div>
+</div>
+<div id="content-box" ng-if="exams.length==0">
+    <div id="full-message">
+        Não existem resultados disponíveis
+    </div>
+</div>
+
+<paper-dialog ng-repeat="dialog in dialogs.global" opened="{{dialog.opened}}" heading="{{dialog.heading}}" transition="{{dialog.transitilon}}" layered="{{dialog.layered}}" backdrop="{{dialog.backdrop}}" autoCloseDisabled="{{dialog.autoCloseDisabled}}" style="position:fixed;width:50%;height:50%;left:25% !important;top:25% !important;">
+    <div style="{{dialog.style}}">
+        <ul ng-if="dialog.content" style="{{dialog.content.style}}">
+            <li ng-repeat="text in dialog.content.texts" style="{{text.style}}">
+                <p ng-bind-html="{{text.text}}"></p>
+            </li>
+        </ul>
+        <div ng-if="dialog.footer" style="{{dialog.footer.style}}">
+            <paper-button ng-repeat="button in dialog.footer.buttons" style="{{button.style}}" label="{{button.label}}" ng-click="executeString(button.click)"></paper-button>
+        </div>
+    </div>
+</paper-dialog>

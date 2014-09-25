@@ -1,0 +1,38 @@
+{
+  "name": "grunt",
+  "version": "0.0.0",
+  "dependencies": {
+    "angular": "1.2.9",
+    "json3": "~3.2.6",
+    "es5-shim": "~2.1.0",
+    "jquery": "~1.10.2",
+    "angular-resource": "1.2.6",
+    "angular-cookies": "1.2.6",
+    "angular-sanitize": "1.2.6",
+    "angular-route": "1.2.6",
+    "angular-ui-router": "~0.2.9",
+    "angular-local-storage": "~0.0.1",
+    "paper-input": "Polymer/paper-input#~0.3.5",
+    "paper-dialog": "polymer/paper-dialog#~0.3.5",
+    "paper-button": "polymer/paper-button#~0.3.5",
+    "paper-radio-group": "Polymer/paper-radio-group#~0.3.5",
+    "paper-radio-button": "Polymer/paper-radio-button#~0.3.5",
+    "core-dropdown": "Polymer/core-dropdown#~0.3.5",
+    "paper-fab": "polymer/paper-fab#~0.3.5",
+    "paper-checkbox": "polymer/paper-checkbox#~0.3.5",
+    "paper-toast": "polymer/paper-toast#~0.3.5",
+    "core-scaffold": "Polymer/core-scaffold#~0.3.5",
+    "core-icons": "Polymer/core-icons#~0.3.5",
+    "core-iconset": "Polymer/core-iconset#~0.3.5",
+    "core-animated-pages": "Polymer/core-animated-pages#~0.3.5",
+    "core-transition": "Polymer/core-transition#~0.3.5",
+    "paper-progress": "Polymer/paper-progress#~0.4.0"
+  },
+  "devDependencies": {
+    "angular-mocks": "1.2.6",
+    "angular-scenario": "1.2.6"
+  },
+  "resolutions": {
+    "angular": "1.2.9"
+  }
+}

@@ -1,0 +1,21 @@
+<core-animated-pages id="exam-animated-pages" ng-init="list()" transitions="slide-from-right cross-fade">
+    <section layout vertical slide-from-right ng-include src="'views/exam/list.html'"></section>
+    <section layout vertical slide-from-right ng-include src="'views/exam/loading-exam.html'"></section>
+    <section layout vertical slide-from-right ng-include src="'views/exam/instructions.html'"></section>
+    <section layout vertical cross-fade ng-include src="'views/exam/itens.html'"></section>
+    <section layout vertical slide-from-right ng-include src="'views/exam/finished.html'"></section>
+</core-animated-pages>
+
+
+<paper-dialog ng-repeat="dialog in dialogs.exam" opened="{{dialog.opened}}" heading="{{dialog.heading}}" transition="{{dialog.transitilon}}" layered="{{dialog.layered}}" backdrop="{{dialog.backdrop}}" autoCloseDisabled="{{dialog.autoCloseDisabled}}" style="position:fixed;width:50%;height:50%;left:25% !important;top:25% !important;">
+    <div style="{{dialog.style}}">
+        <ul ng-if="dialog.content" style="{{dialog.content.style}}">
+            <li ng-repeat="text in dialog.content.texts" style="{{text.style}}">
+                <p ng-bind-html="{{text.text}}"></p>
+            </li>
+        </ul>
+        <div ng-if="dialog.footer" style="{{dialog.footer.style}}">
+            <paper-button ng-repeat="button in dialog.footer.buttons" style="{{button.style}}" label="{{button.label}}" ng-click="executeString(button.click)"></paper-button>
+        </div>
+    </div>
+</paper-dialog>

@@ -1,0 +1,20 @@
+<div id="content-title" class="color-bg-4 color-1">
+    <img src="images/icon_terapia.png" class="pull-left" />
+    <label class="pull-left m-20">Principal</label>
+    <paper-shadow z="1"></paper-shadow>
+</div>
+<div id="content-box">
+    <div class="color-bg-1 box"  layout vertical style="position:relative;height:40%">
+        <div class="box-header color-1 color-bg-3 pull-left">
+            <core-item icon="drive-form" label="Notificações"></core-item>
+        </div>
+        <div class="box-middle color-bg-1 color-4 pull-left" >
+            <ul>
+                <li ng-if="exams > 0">(<b>{{exams}}</b>) Prova(s) Pendente(s)</li>
+                <li ng-if="results > 0">(<b>{{results}}</b>) Resultados</li>
+            </ul>
+        </div>
+        <paper-shadow z="1"></paper-shadow>
+
+    </div>
+</div>

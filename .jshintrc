@@ -1,0 +1,30 @@
+{
+    "node": true,
+    "browser": true,
+    "esnext": true,
+    "bitwise": true,
+    "camelcase": false,
+    "curly": true,
+    "eqeqeq": false,
+    "eqnull": false,
+    "immed": true,
+    "indent": 4,
+    "latedef": true,
+    "newcap": true,
+    "noarg": true,
+    "quotmark": true,
+    "regexp": true,
+    "undef": false,
+    "unused": false,
+    "strict": true,
+    "trailing": true,
+    "smarttabs": true,
+    "globals": {
+        "jquery":false,
+        "angular": false,
+        "$": false,
+        "SGPApp":false,
+        "AWS":false,
+        "Auth0":false
+    }
+}

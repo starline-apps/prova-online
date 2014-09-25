@@ -1,0 +1,23 @@
+<div id="content-title" class="color-bg-4 color-1">
+    <img src="images/icon_terapia.png" class="pull-left" />
+    <label class="pull-left m-20">Instruções</label>
+    <paper-shadow z="1"></paper-shadow>
+</div>
+<div id="content-box">
+    <div class="color-bg-1 pointer box"  layout vertical style="position:relative;">
+        <div class="box-header color-1 color-bg-3 pull-left">
+            <core-item icon="drive-form" label="{{exam.assessment_name}}"></core-item>
+        </div>
+        <div class="box-middle color-bg-1 color-4 pull-left" >
+            <ul>
+                <li ng-repeat="(key, value) in examHeader.examtexts" ng-if="key.indexOf('instruction') > -1" ng-bind-html="value"></li>
+            </ul>
+        </div>
+        <paper-shadow z="1"></paper-shadow>
+
+        <div class="fab fab-0">
+            <paper-button raisedbutton="" class="colored" ng-click="toggleDialog('dialog-start-exam')" label="Iniciar Prova" role="button" tabindex="0" aria-label="colored"></paper-button>
+
+        </div>
+    </div>
+</div>

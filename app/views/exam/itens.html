@@ -1,0 +1,45 @@
+<div class="item-container" cross-fade>
+    <div class="item-header color-bg-4 color-1">
+        <div class="exam-actual-item size-18">{{exam.assessment_name}}</div>
+        <div class="exam-title size-18">&nbsp;</div>
+        <div class="exam-time size-18">Tempo Restante : <b>{{examTime}}</b></div>
+    </div>
+
+    <core-animated-pages id="item-animated-pages" transitions="slide-from-right">
+        <section layout vertical  ng-repeat="item in examHeader.commands" hero cross-fade ng-include src="'views/exam/item.html'"></section>
+    </core-animated-pages>
+
+
+
+    <div class="item-footer color-bg-1">
+        <div class="item-footer-left color-bg-1 color-5 size-18">
+            <div class="answered-itens">
+                Respondidas {{examHeader.answers}}/{{examHeader.items}}
+                <paper-shadow z="1"></paper-shadow>
+            </div>
+        </div>
+        <div class="item-pagination-control-left color-bg-1">
+            <paper-fab class="item-index color-bg-1 color-5 size-24" icon="arrow-back" ng-click="paginationToLeft()"></paper-fab>
+        </div>
+        <div class="item-pagination color-bg-1">
+            <paper-fab class="item-index color-bg-1 color-5 size-24" ng-repeat="cmd in examHeader.commands" style="left:{{$index*75}}px" label="{{cmd.commandIndex + 1}}" ng-click="goToItem(cmd.commandIndex)" ng-class="actualCommand == cmd.commandIndex ? 'color-bg-3' : ((examAnswers.answers[cmd.commandKey].alternative_set.length  > 0  || examAnswers.answers[cmd.commandKey].textanswer_set.length > 0)  ? 'color-bg-2' : 'color-bg-1')"></paper-fab>
+        </div>
+        <div class="item-pagination-control-right color-bg-1">
+            <paper-fab class="item-index color-bg-1 color-5 size-24" icon="arrow-forward" class="color-bg-1"  ng-click="paginationToRight()"></paper-fab>
+        </div>
+        <div class="item-footer-right color-bg-1 color-5">
+            <div class="finish-exam">
+            <paper-button raisedbutton="" ng-click="toggleDialog('dialog-finish-exam-confirmation')" label="Finalizar" role="button" tabindex="0" aria-label="colored" style="width:12em"></paper-button>
+            </div>
+        </div>
+    </div>
+
+    <div class="bt-prev-item">
+        <paper-fab icon="arrow-back" class="color-bg-4 color-1" ng-if="actualCommand!=0" ng-click="prevItem()"></paper-fab>
+    </div>
+    <div class="bt-next-item">
+        <paper-fab icon="arrow-forward" class="color-bg-4 color-1" ng-if="actualCommand+1!=examHeader.items" ng-click="nextItem()"></paper-fab>
+    </div>
+</div>
+
+

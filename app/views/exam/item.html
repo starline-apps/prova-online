@@ -1,0 +1,29 @@
+<div class="item-middle">
+    <div class="item-body">
+        <span cross-fade>Questão {{actualCommand+1}}</span>
+        <br />
+        <span cross-fade ng-bind-html="item.item.item.itemcontent.body"></span>
+        <br />
+        <br />
+        <span cross-fade ng-bind-html="item.command.body"></span>
+    </div>
+
+    <div ng-if="item.command.type == 'o'" class="item-alternatives">
+
+        <div ng-repeat="(key, alternative) in item.command.alternative_set" class="alternative">
+            <div class="option">
+                <paper-radio-button ng-checked="examAnswers.answers[item.commandKey].alternative_set[0]==key" name="{{key}}" ng-click="setAlternativeAnswer(item, item.commandKey, key)"></paper-radio-button>
+            </div>
+            <div class="option-label" ng-bind-html="arrAlternatives[$index] + ') ' +  alternative.body"></div>
+
+        </div>
+
+    </div>
+
+    <div ng-if="item.command.type == 't'" slide-up list-cascade class="item-text">
+        <paper-input ng-repeat="(key, text) in item.command.textanswer_set" value="{{examAnswers.answers[item.commandKey].textanswer_set}}" multiline rows="6" id="{{'txt'+item.commandKey}}" label="Digite sua resposta" style="width:90%" ng-blur="setTextAnswer(item.commandKey)"></paper-input>
+    </div>
+    <paper-shadow z="1"></paper-shadow>
+</div>
+
+
